@@ -29,13 +29,13 @@ def next(q, p, list):
 #объявим переменную house
 houses = var()
 
-#определить правила с помощью пакета lall,
+#определяем правила с помощью пакета lall,
 rules_zebraproblem = lall(
     #5 домов
     (eq, (var(), var(), var(), var(), var()), houses),
-    #англичанин в красном
+    #англичанин в красном доме
     (membero,('Englishman', var(), var(), var(), 'red'), houses),
-    #у свида собака
+    #у свида есть собака
     (membero,('Swede', var(), var(), 'dog', var()), houses),
     #дани пьет чай
     (membero,('Dane', var(), 'tea', var(), var()), houses),
@@ -43,25 +43,25 @@ rules_zebraproblem = lall(
     (left,(var(), var(), var(), var(), 'green'), (var(), var(), var(), var(), 'white'), houses),
     #кофе пьют в зеленом доме
     (membero,(var(), var(), 'coffee', var(), 'green'), houses),
-    #чел курящий пол мол есть птицы
+    #у чела, который курит пол-мол есть птицы
     (membero,(var(), 'Pall Mall', var(), 'birds', var()), houses),
-    #в жолтом доме чел курящий данхил
+    #в желтом доме - чел курящий данхил
     (membero,(var(), 'Dunhill', var(), var(), 'yellow'), houses),
-    #в доме посередине пьют молоко
+    #в доме посередине - пьют молоко
     (eq,(var(), var(), (var(), var(), 'milk', var(), var()), var(), var()), houses),
     #норвежец в первом доме
     (eq,(('Norwegian', var(), var(), var(), var()), var(), var(), var(), var()), houses),
-    #чел курящий бленд рядом с домом где есть кошки 
+    #чел курящий бленд - рядом с домом где есть кошки 
     (next,(var(), 'Blend', var(), var(), var()), (var(), var(), var(), 'cats', var()), houses),
-    #чел курящий донхел рядом с домом где есть лошадь
+    #чел курящий донхел - рядом с домом где есть лошадь
     (next,(var(), 'Dunhill', var(), var(), var()), (var(), var(), var(), 'horse', var()), houses),
-    #чел курящий блю мастер пьет пиво
+    #чел курящий блу мастер - пьет пиво
     (membero,(var(), 'Blue Master', 'beer', var(), var()), houses),
-    #немец курит принц
+    #немец - курит принц
     (membero,('German', 'Prince', var(), var(), var()), houses),
-    #норвежец рядом с голубым домом
+    #норвежец - рядом с голубым домом
     (next,('Norwegian', var(), var(), var(), var()), (var(), var(), var(), var(), 'blue'), houses),
-    #в доме рядом с челом крящим бленд пьют воду
+    #в доме рядом с челом крящим бленд - пьют воду
     (next,(var(), 'Blend', var(), var(), var()), (var(), var(), 'water', var(), var()), houses),
     #в одном из домом есть зебра
     (membero,(var(), var(), var(), 'zebra', var()), houses)
